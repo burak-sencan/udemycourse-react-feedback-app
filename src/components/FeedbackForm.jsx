@@ -3,7 +3,7 @@ import Card from './shared/Card'
 import RatingSelect from './RatingSelect'
 import Button from './shared/Button'
 
-function FeedbackFrom({handleAdd}) {
+function FeedbackFrom({ handleAdd }) {
   const [text, setText] = useState('')
   const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
