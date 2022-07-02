@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import RatingSelect from './RatingSelect'
 import Card from './shared/Card'
+import RatingSelect from './RatingSelect'
 import Button from './shared/Button'
 
-function FeedbackFrom() {
+function FeedbackFrom({handleAdd}) {
   const [text, setText] = useState('')
-  const [rating, setRating] = useState('')
+  const [rating, setRating] = useState(10)
   const [btnDisabled, setBtnDisabled] = useState(true)
   const [message, setMessage] = useState('')
 
@@ -20,7 +20,7 @@ function FeedbackFrom() {
       setBtnDisabled(false)
       setMessage(null)
     }
-    setText(e.target.value) 
+    setText(e.target.value)
   }
 
   const handleSubmit = (e) => {
@@ -30,7 +30,9 @@ function FeedbackFrom() {
         text,
         rating,
       }
-      console.log(newFeedback);
+      handleAdd(newFeedback)
+      setText('')
+      setBtnDisabled(true)
     }
   }
 

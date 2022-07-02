@@ -4,8 +4,9 @@ export default function RatingSelect({select}) {
   const [selected, setSelected] = useState(10)
   const handleChange=(e)=>{
     setSelected(+e.target.value);
-    select(selected)
+    select(+e.target.value)
   }
+
   return (
     <ul className='rating'>
       {Array.from({ length: 10 }, (_, i) => (
