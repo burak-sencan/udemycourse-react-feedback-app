@@ -1,14 +1,18 @@
+import { useContext } from 'react'
+
+import FeedbackContext from '../context/FeedbackContext.js'
 import Card from './shared/Card.jsx'
 import PropTypes from 'prop-types'
 import { FaTimes } from 'react-icons/fa'
 
-function Feedback({ item, handleDelete }) {
+function Feedback({ item }) {
+  const { deleteFeedback } = useContext(FeedbackContext)
   return (
     <Card reverse={false}>
       <div className='num-display'>{item.rating}</div>
       <button
         onClick={() => {
-          handleDelete(item.id)
+          deleteFeedback(item.id)
         }}
         className='close'
       >
